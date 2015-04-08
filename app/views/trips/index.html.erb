@@ -12,10 +12,10 @@
   </thead>
 
   <tbody>
-    <% @trip.each do |trip| %>
+    <% @trips.each do |trip| %>
       <tr>
-        <td><%= Trips.name %></td>
-        <td><%= Trips.description %></td>
+        <td><%= trip.name %></td>
+        <td><%= trip.description %></td>
         <td><%= link_to 'Show', trip %></td>
         <td><%= link_to 'Edit', edit_trip_path(trip) %></td>
         <td><%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
