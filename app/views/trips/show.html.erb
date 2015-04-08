@@ -9,13 +9,9 @@
   <strong>Description:</strong>
   <%= @trip.description %>
 </p>
-<table class="table">
-	<tr>
-		<th>Destination</th>
-		<th>Destination</th>
-	</tr>
 
-	<% @trip.destinations.each do |destination|
+
+	<% @trip.destinations.each do |destination| %>
 		<tr>
 			<td><%= link_to destination.name, edit_trip_destination_path(@trip, destination) %></td>
 			<td><%= destination.description %></td>
