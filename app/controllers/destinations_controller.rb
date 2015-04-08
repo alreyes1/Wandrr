@@ -5,11 +5,14 @@ class DestinationsController < ApplicationController
   # GET /destinations.json
   def index
     @destinations = Destination.all
+
   end
 
   # GET /destinations/1
   # GET /destinations/1.json
   def show
+     @trip = Trip.find(params[:trip_id])
+     @destination = Destination.find(params[:id])
   end
 
   # GET /destinations/new
@@ -32,7 +35,7 @@ class DestinationsController < ApplicationController
 
     respond_to do |format|
       if @destination.save
-        format.html { redirect_to @destination, notice: 'Destination was successfully created.' }
+        format.html { redirect_to trip_destination_path(@trip, @destination), notice: 'Destination was successfully created.' }
         format.json { render :show, status: :created, location: @destination }
       else
         format.html { render :new }
@@ -44,9 +47,11 @@ class DestinationsController < ApplicationController
   # PATCH/PUT /destinations/1
   # PATCH/PUT /destinations/1.json
   def update
+    @destination = Destination.find(params[:id])
+
     respond_to do |format|
       if @destination.update(destination_params)
-        format.html { redirect_to @destination, notice: 'Destination was successfully updated.' }
+        format.html { redirect_to trip_destination_path(@destination.trip, @destination), notice: 'Destination was successfully updated.' }
         format.json { render :show, status: :ok, location: @destination }
       else
         format.html { render :edit }
