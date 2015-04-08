@@ -20,8 +20,8 @@ class DestinationsController < ApplicationController
 
   # GET /destinations/1/edit
   def edit
-    @trip = Trips.find(params[:trip_id])
-    @destination = Destinations.find(params[:id])
+    @trip = Trip.find(params[:trip_id])
+    @destination = Destination.find(params[:id])
   end
 
   # POST /destinations
