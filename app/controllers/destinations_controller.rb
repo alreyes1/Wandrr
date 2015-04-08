@@ -20,7 +20,7 @@ class DestinationsController < ApplicationController
 
   # GET /destinations/1/edit
   def edit
-    @trip = Trip.find(params[:trip_id])
+    @trip = Trips.find(params[:trip_id])
     @destination = Destinations.find(params[:id])
   end
 
